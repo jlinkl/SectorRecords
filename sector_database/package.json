@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^3.7.4"
+  },
+  "name": "sector_database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "nodemon": "^3.0.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "server:dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
