@@ -1,8 +1,8 @@
 class Run:
 
-    def __init__(self, link, season, runner, lost_sector, id=None):
+    def __init__(self, link, seasonid, runnerid, lost_sectorid, id=None):
         self.link = link
-        self.season = season
-        self.runner = runner
-        self.lost_sector = lost_sector
+        self.seasonid = seasonid
+        self.runnerid = runnerid
+        self.lost_sectorid = lost_sectorid
         self.id = id
