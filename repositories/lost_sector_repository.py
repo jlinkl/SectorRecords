@@ -27,3 +27,13 @@ def find(id):
         lostsector = LostSector(row['name'], row['id'])
 
     return lostsector
+
+#add a lost sector to the table given its name
+def add(lost_sector):
+    sql = "INSERT INTO lost_sectors (name) VALUES (%s) RETURNING *"
+    values = [lost_sector.name]
+    results = run_sql(sql, values)
+    id = results[0]['id']
+    lost_sector.id = id
+    return lost_sector
+    

@@ -25,3 +25,9 @@ class TestLostSector(unittest.TestCase):
     def test_find_lost_sector(self):
         found_lostsector = lost_sector_repository.find(1)
         self.assertEqual(found_lostsector.name, self.lostsectors[0].name)
+
+#testing to see if i can add a lost sector to the db
+    def test_add_lost_sector(self):
+        lostsector = LostSector("test", 0)
+        lost_sector_repository.add(lostsector)
+        self.assertGreater(len(lost_sector_repository.select_all()), len(self.lostsectors))
