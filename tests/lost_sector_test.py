@@ -1,10 +1,12 @@
 import unittest
 from models.lost_sector import LostSector 
 from repositories import lost_sector_repository
+from db import run_sql
 
 
 class TestLostSector(unittest.TestCase):
     def setUp(self):
+        run_sql.reset_tables()
         self.lostsector = LostSector("Aphelions Rest", 1)
         self.lostsectors = lost_sector_repository.select_all()
 
@@ -41,5 +43,6 @@ class TestLostSector(unittest.TestCase):
 
 #testing to see if i can delete a lost sector entry from the table, given its id
     def test_delete_lost_sector(self):
+        lost_sector_repository.add(LostSector("test", 0))
         lost_sector_repository.delete(25)
         self.assertEqual(len(self.lostsectors), len(lost_sector_repository.select_all()))
