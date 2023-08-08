@@ -36,4 +36,10 @@ def add(lost_sector):
     id = results[0]['id']
     lost_sector.id = id
     return lost_sector
+
+#change the name of a lost sector, given the name to change to and its current id
+def update(lostsector):
+    sql = "UPDATE lost_sectors SET name = %s WHERE id = %s"
+    values = [lostsector.name, lostsector.id]
+    run_sql(sql, values)
     

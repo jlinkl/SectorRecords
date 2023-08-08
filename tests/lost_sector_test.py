@@ -23,11 +23,18 @@ class TestLostSector(unittest.TestCase):
 
 #testing to see if i can find a lost sector given its id
     def test_find_lost_sector(self):
-        found_lostsector = lost_sector_repository.find(1)
-        self.assertEqual(found_lostsector.name, self.lostsectors[0].name)
+        found_lostsector = lost_sector_repository.find(2)
+        self.assertEqual(found_lostsector.name, "Bay of Drowned Wishes")
 
 #testing to see if i can add a lost sector to the db
     def test_add_lost_sector(self):
         lostsector = LostSector("test", 0)
         lost_sector_repository.add(lostsector)
         self.assertGreater(len(lost_sector_repository.select_all()), len(self.lostsectors))
+
+
+#testing to see if i can change the data of a lost sector, given its id
+    def test_change_lost_sector(self):
+        lostsector = LostSector('test', 1)
+        lost_sector_repository.update(lostsector)
+        self.assertEqual(lostsector.name, lost_sector_repository.find(1).name)
