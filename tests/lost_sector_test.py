@@ -38,3 +38,8 @@ class TestLostSector(unittest.TestCase):
         lostsector = LostSector('test', 1)
         lost_sector_repository.update(lostsector)
         self.assertEqual(lostsector.name, lost_sector_repository.find(1).name)
+
+#testing to see if i can delete a lost sector entry from the table, given its id
+    def test_delete_lost_sector(self):
+        lost_sector_repository.delete(25)
+        self.assertEqual(len(self.lostsectors), len(lost_sector_repository.select_all()))
