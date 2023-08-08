@@ -34,13 +34,13 @@ class TestSeason(unittest.TestCase):
         self.assertGreater(len(season_repository.select_all()), len(self.seasons))
 
 #testing to see if i can change the data of a season, given its id
-    def test_change_lost_sector(self):
+    def test_change_season(self):
         season = Season('test', 1)
         season_repository.update(season)
         self.assertEqual(season.name, season_repository.find(1).name)
 
 #testing to see if i can delete a season entry from the table, given its id
-    def test_delete_lost_sector(self):
+    def test_delete_season(self):
         season_repository.add(Season("test", 0))
         season_repository.delete(len(self.seasons))
         self.assertEqual(len(self.seasons), len(season_repository.select_all()))
