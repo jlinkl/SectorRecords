@@ -20,3 +20,8 @@ class TestLostSector(unittest.TestCase):
     def test_table_contains_data(self):
         num_of_rows = len(self.lostsectors)
         self.assertGreater(num_of_rows, 0)
+
+#testing to see if i can find a lost sector given its id
+    def test_find_lost_sector(self):
+        found_lostsector = lost_sector_repository.find(1)
+        self.assertEqual(found_lostsector.name, self.lostsectors[0].name)
